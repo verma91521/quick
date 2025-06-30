@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QUICK HELP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fbe5ea, #e1f2fb);
+      color: #333;
+      min-height: 100vh;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      width: 100px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 25px;
+      border: 1px solid #e0e0e0;
+      background-color: #ffffff;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: #f0f0f0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #333;
+      margin: 4px 0;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 0;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .grid-container {
+      display: grid;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 12px;
+      object-fit: contain;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    @media (max-width: 599px) {
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        padding: 16px;
+        min-height: 160px;
+      }
+      .card img {
+        width: 60px;
+        height: 60px;
+      }
+      .card h3 {
+        font-size: 14px;
+      }
+    }
+
+    @media (min-width: 600px) and (max-width: 991px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 992px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .contact-form,
+    .contact-image {
+      flex: 1 1 300px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form label {
+      margin: 10px 0 5px;
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #fff;
+    }
+
+    .contact-form button {
+      padding: 12px;
+      font-size: 16px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #555;
+      transform: scale(1.03);
+    }
+
+    .contact-image iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #555;
+      background-color: rgba(255, 255, 255, 0.6);
+      border-top: 1px solid #ddd;
+      margin-top: 40px;
+    }
+
+
+
+
+    .about-container {
+      max-width: 1100px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .about-container h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #222;
+    }
+
+    .about-container p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <img src="logo.png" alt="logo" class="logo" />
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#">HOME</a>
+      <a href="#">SERVICES</a>
+      <a href="#">GALLERY</a>
+      <a href="#">ABOUT</a>
+      <a href="#contact">CONTACT US</a>
+    </div>
+  </nav>
+
+  <!-- SERVICES SECTION -->
+  <div class="grid-container">
+
+    <div class="card">
+      <a href="file:///C:/Users/lalji/OneDrive/Desktop/QUICK%20HELP%20SERVICES/SERVICES/PAN.HTML"><img src="SERVICES/IMAGE.png" alt="PAN CARD"></a>
+      <h3>PAN CARD</h3>
+    </div>
+
+    <div class="card">
+      <a href="#"><img src="SERVICES/IMAGE2.jpg" alt="AADHAAR CARD"></a>
+      <h3>AADHAAR CARD</h3>
+    </div>
+
+    <div class="card">
+      <a href="file:///C:/Users/lalji/OneDrive/Desktop/QUICK%20HELP%20SERVICES/SERVICES/dl.html"><img src="SERVICES/image3.png" alt="DRIVING LICENCE"></a>
+      <h3>DRIVING LICENCE</h3>
+    </div>
+
+    <div class="card">
+      <a href="file:///C:/Users/lalji/OneDrive/Desktop/QUICK%20HELP%20SERVICES/SERVICES/voter.html"><img src="SERVICES/IMAGE7.PNG" alt="VOTER ID CARD"></a>
+      <h3>VOTER ID CARD</h3>
+    </div>
+
+    <div class="card">
+      <a href="#"><img src="SERVICES/image5.png" alt="DOMICILE CERTIFICATE"></a>
+      <h3>DOMICILE CERTIFICATE</h3>
+    </div>
+
+    <div class="card">
+      <a href="#"><img src="SERVICES/image8.png" alt="INCOME CERTIFICATE"></a>
+      <h3>INCOME CERTIFICATE</h3>
+    </div>
+
+    <div class="card">
+      <a href="#"><img src="SERVICES/IMAGE9.png" alt="MARRIAGE CERTIFICATE"></a>
+      <h3>MARRIAGE CERTIFICATE</h3>
+    </div>
+
+    <div class="card">
+      <a href="#"><img src="SERVICES/IMAGE6.png" alt="GAZETTE NAME CHANGE"></a>
+      <h3>GAZETTE (NAME CHANGE)</h3>
+    </div>
+
+    <div class="card">
+      <a href="#"><img src="SERVICES/IMAGE1.png" alt="UDYAM AADHAAR"></a>
+      <h3>UDYAM AADHAAR (MSME)</h3>
+    </div>
+
+  </div>
+
+
+
+
+
+ <div class="about-container">
+    <h1>About Us</h1>
+    <p><strong>Quick Help Services</strong> has been serving the community since <strong>2019</strong>, with a mission to make documentation and application services easy, reliable, and accessible for everyone. We specialize in offering a wide range of services including PAN card, Aadhaar card, driving license, voter ID, domicile certificates, income certificates, marriage certificates, and much more – all under one roof.</p>
+
+    <p>Our team is committed to providing <strong>fast, affordable, and door-to-door services</strong> that save our customers time and hassle. We believe in complete <strong>transparency</strong>, <strong>accurate documentation</strong>, and <strong>excellent customer support</strong>. With <strong>free consultation</strong> and expert guidance, we help you understand the process, avoid delays, and get your work done smoothly.</p>
+
+    <p>At Quick Help Services, <strong>customer satisfaction</strong> is our top priority. Whether you're applying for a new government document or updating an existing one, you can rely on us for honest advice, efficient execution, and follow-up support. Our clients trust us not just for our speed, but for our <strong>integrity</strong> and <strong>personalized attention</strong>.</p>
+
+    <p>We are proud to have built long-term relationships with thousands of happy customers over the years. Whether you're a student, a professional, a senior citizen, or a business owner – we have a solution tailored for you.</p>
+
+    <p><strong>Quick Help Services – Your Trusted Partner for Government Documentation & Consultation. Fast. Reliable. Local.</strong></p>
+  </div>
+
+
+
+
+
+
+
+  <!-- CONTACT SECTION -->
+  <div class="container" id="contact">
+    <h1>Contact Us</h1>
+    <div class="contact-section">
+      <div class="contact-form">
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Type your message here..." required></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="contact-image">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d470.95413871363206!2d72.85565794477573!3d19.211220634684246!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7c5d21dff2b%3A0xa3f597aeca05cd80!2sQUICK%20HELP!5e0!3m2!1sen!2sin!4v1729254905373!5m2!1sen!2sin"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 QUICK HELP SERVICES. All rights reserved.
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    document.querySelectorAll('#navLinks a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
